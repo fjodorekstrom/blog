@@ -1,14 +1,18 @@
 {
-  "name": "application-name",
-  "version": "0.0.1",
+  "name": "blog-1.0",
+  "version": "0.0.1-1",
   "private": true,
   "scripts": {
-    "start": "node app"
+    "start": "node app.js"
   },
   "dependencies": {
     "express": "3.0.0rc3",
     "jade": "*",
     "stylus": "*",
     "mongodb": ">= 0.9.6-7"
+  },
+  "subdomain": "fjodorekstrom.blog",
+  "engines": {
+    "node": "0.6.x"
   }
 }
