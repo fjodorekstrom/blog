@@ -31,10 +31,13 @@ var articleProvider = new ArticleProvider();
 
 //app.get('/', routes.index);
 app.get('/', function(req, res){
-  articleProvider.findAll(function(error, docs){
-      res.send(docs);
-  });
-})
+    articleProvider.findAll( function(error,docs){
+        res.render('index.jade', {
+            title: 'Blog',
+            articles:docs
+        });
+    })
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
