@@ -35,3 +35,8 @@ font-size
 #articles .article .body {
   background-color: #ffa;
 }
+#articles .comment {
+  font-size: 0.7em;
+  font-style: italic;
+  margin: 5px;
+}
