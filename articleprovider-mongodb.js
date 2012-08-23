@@ -3,14 +3,22 @@ var Connection = require('mongodb').Connection;
 var Server = require('mongodb').Server;
 var BSON = require('mongodb').BSON;
 var ObjectID = require('mongodb').ObjectID;
+var db= new Db('nodejitsudb388081144666', new Server('alex.mongohq.com', 10034, {auto_reconnect: true}, {}));
 
 ArticleProvider = function(host, port){
-	this.db= new Db('node-mongo-blog', new Server(host, port, {auto_reconnect: true}, {}));
-	this.db.open(function(){});
+//var db= new Db('nodejitsudb388081144666', new Server('alex.mongohq.com', 10034, {auto_reconnect: true}, {}));	
+	db.open(function(err, db_p){
+		if(err){
+			throw err;
+		}
+		db.authenticate('nodejitsu', '614c1efbd346103801ec8b65413fc2b4', function(err, replies){
+			//You are now connected and authenticated
+		});
+	});
 };
 
 ArticleProvider.prototype.getCollection= function(callback){
-	this.db.collection('articles', function(error, article_collection){
+	db.collection('articles', function(error, article_collection){
 		if(error){
 			callback(error);
 		} else {
