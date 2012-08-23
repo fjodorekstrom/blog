@@ -4,5 +4,10 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+  articleProvider.findAll(function(error, docs){
+  	res.render('index.jade',{
+  		title: 'Blog',
+  		articles: docs
+  	});
+  });
 };
